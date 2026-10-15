@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "google-challenge-tools"
+version = "0.1.0"
+description = "Google 挑战执行、浏览器环境与 Enterprise 协议分析工具"
+requires-python = ">=3.10"
+dependencies = ["requests>=2.31,<3", "Pillow>=10,<13", "curl_cffi>=0.15,<0.17"]
+
+[project.optional-dependencies]
+iv8 = ["iv8>=0.1.4"]
+
+[tool.setuptools.packages.find]
+include = ["google_challenge*"]
+
+[tool.setuptools.package-data]
+google_challenge = ["runtime/*.js"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
